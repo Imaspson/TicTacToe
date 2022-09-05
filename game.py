@@ -25,6 +25,14 @@ class TicTacToe:
     def num_empty_squares(self):
         return len(self.available_moves())
 
+    def make_move(self, square, letter):
+        if self.board[square] == ' ':
+            self.board[square] = letter
+            if self.winner[square, letter]:
+                self.current_winner = letter
+            return True
+        return False
+
 def play(game, x_player, o_player, print_game = True):
     if print_game:
         game.print_board_nums()
@@ -32,3 +40,24 @@ def play(game, x_player, o_player, print_game = True):
     letter = 'X'
 
     while game.empty_squares():
+        if letter == 'O':
+            square = o_player.get_move(game)
+        else:
+            square = x_player.get_move(game)
+
+        # a function to make a move
+        if game.make_move(square, letter):
+            if print_game:
+                print(letter + f' makes a move to square {square}')
+                game.print_board()
+                print('')
+
+        if game.current_winner:
+            if print_game:
+                print(letter + ' wins!')
+            return letter
+
+        # after a move is made, we need a function to alternate the letters
+        letter = 'O' if letter == 'X' else 'X'
+
+        #need a function to see if someone won
