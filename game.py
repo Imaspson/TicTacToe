@@ -1,4 +1,4 @@
-from Player import HumanPlayer, RandomComputerPlayer
+from Player import HumanPlayer, GeniusComputerPlayer
 import time
 
 
@@ -99,7 +99,7 @@ def play(game, x_player, o_player, print_game = True):
 
 if __name__ == '__main__':
     x_player = HumanPlayer('X')
-    o_player = RandomComputerPlayer('O')
+    o_player = GeniusComputerPlayer('O')
     t = TicTacToe()
     play(t, x_player, o_player, print_game = True)
 
