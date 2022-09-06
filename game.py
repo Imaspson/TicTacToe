@@ -1,4 +1,5 @@
 from Player import HumanPlayer, RandomComputerPlayer
+import time
 
 
 class TicTacToe:
@@ -87,6 +88,9 @@ def play(game, x_player, o_player, print_game = True):
 
         # after a move is made, we need a function to alternate the letters
         letter = 'O' if letter == 'X' else 'X'
+
+        # tiny break to make this a little bit easier to read
+        time.sleep(0.8)
 
         #need a function to see if someone won
 
